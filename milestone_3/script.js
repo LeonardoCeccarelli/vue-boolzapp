@@ -89,7 +89,8 @@ new Vue({
 
         currentIndexConversation: 0,
 
-        newMessageToAdd: ""
+        newMessageToAdd: "",
+
     },
     methods: {
         onChangeCurrentConversation(index) {
@@ -120,6 +121,6 @@ new Vue({
                 text: 'Ok!',
                 status: 'recived'
             })
-        }
+        },
     }
 })

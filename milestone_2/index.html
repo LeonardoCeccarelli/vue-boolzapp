@@ -93,9 +93,9 @@
 
                     <!-- section info message user -->
                     <div class="info_message_user d-flex align-items-center">
-                        <img src="../img/avatar_1.jpg" alt="image user">
+                        <img :src="contacts[currentIndexConversation].avatar" alt="image user">
                         <div class="info_message_user_text">
-                            <h4 class="mb-1">Michele</h4>
+                            <h4 class="mb-1">{{ contacts[currentIndexConversation].name }}</h4>
                             <p class="m-0 text-secondary">Ultimo accesso il 2021/11/03 alle 13:28:00</p>
                         </div>
                         <div class="info_message_user_icon">
