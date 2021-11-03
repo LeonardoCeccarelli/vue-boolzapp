@@ -107,10 +107,25 @@ Contenitore sx con lista contatti
 }
 
 /* Search contacs */
+.search_contacts .form-control {
+    border-left: none;
+}
+
+.search_contacts .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.search_contacts .btn-outline-secondary {
+    background-color: white;
+    border-color: #ced4da;
+    border-right: none;
+}
+
 .search_contacts .btn-outline-secondary:hover {
-    background-color: transparent ;
+    background-color: white;
     color: #6c757d;
-    border-color: #6c757d ;
+    border-color: #ced4da;
 }
 
 .search_contacts .btn-outline-secondary:focus {
