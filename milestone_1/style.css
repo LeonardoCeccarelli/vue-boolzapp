@@ -108,7 +108,7 @@ Contenitore sx con lista contatti
 
 /* Search contacs */
 .search_contacts .form-control {
-    border-left: none;
+    border-color: transparent;
 }
 
 .search_contacts .form-control:focus {
@@ -118,14 +118,14 @@ Contenitore sx con lista contatti
 
 .search_contacts .btn-outline-secondary {
     background-color: white;
-    border-color: #ced4da;
+    border-color: transparent;
     border-right: none;
 }
 
 .search_contacts .btn-outline-secondary:hover {
     background-color: white;
     color: #6c757d;
-    border-color: #ced4da;
+    border-color: transparent;
 }
 
 .search_contacts .btn-outline-secondary:focus {
@@ -208,13 +208,17 @@ Contenitore dx con tutti i messaggi
 
 .single_message {
     padding: 20px;
-    background-color: #d6fabe;
     border-radius: 10px;
     max-width: 60%;
+    min-width: 35%;
 }
 
 .single_message.recived {
     background-color: white;
+}
+
+.single_message.sent {
+    background-color: #d6fabe;
 }
 
 /* write message */
@@ -236,6 +240,10 @@ Contenitore dx con tutti i messaggi
 
 .input_write_text {
     flex-grow: 1;
+}
+
+.write_message .form-control {
+    border-color: transparent;
 }
 
 .write_message .form-control:focus {
