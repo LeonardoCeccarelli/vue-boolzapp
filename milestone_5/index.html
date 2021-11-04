@@ -121,11 +121,13 @@
                                     <div class="single_message_times position-absolute bottom-0 end-0 p-1">
                                         <p class="m-0 text-secondary small">{{ sms.date }}</p>
                                     </div>
-                                    <div class="dropdown_message position-absolute top-0 end-0 p-1">
-                                        <i class="fas fa-chevron-up text-secondary" tabindex="0"></i>
+                                    <div class="dropdown_message position-absolute top-0 end-0 p-1"
+                                        :tabindex="focusMessage" @click="onSetTabindex">
+                                        <i class="fas fa-chevron-up text-secondary"></i>
                                         <div class="dropdown_menu">
                                             <p class="m-0">Info messaggio</p>
-                                            <p class="m-0" @click="onClickRemoveMessage(i, currentIndexConversation)">
+                                            <p class="m-0 text-danger"
+                                                @click="onClickRemoveMessage(i, currentIndexConversation)">
                                                 Cancella messaggio</p>
                                         </div>
                                     </div>

@@ -91,7 +91,9 @@ new Vue({
 
         newMessageToAdd: "",
 
-        filteredContact: ""
+        filteredContact: "",
+
+        focusMessage: 0,
 
     },
     methods: {
@@ -156,9 +158,17 @@ new Vue({
             }
         },
 
+        onSetTabindex() {
+            this.focusMessage = 0
+        },
+
         onClickRemoveMessage(index, currentConversation) {
 
-            return this.contacts[currentConversation].messages.splice(index, 1)
+            const deleteMessage = this.contacts[currentConversation].messages.splice(index, 1)
+
+            this.focusMessage = ""
+
+            return deleteMessage
         }
     }
 })

@@ -239,7 +239,7 @@ Contenitore dx con tutti i messaggi
     display: initial;
 }
 
-.dropdown_message i:focus + .dropdown_menu {
+.dropdown_message:focus > .dropdown_menu {
     display: initial;
 }
 
