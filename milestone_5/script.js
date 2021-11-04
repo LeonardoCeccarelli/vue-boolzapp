@@ -93,6 +93,8 @@ new Vue({
 
         filteredContact: "",
 
+        currentDate: "",
+
         focusMessage: 0,
 
     },
@@ -107,8 +109,10 @@ new Vue({
                 return
             }
 
+            this.currentDate = this.getDateRealTime()
+
             this.contacts[this.currentIndexConversation].messages.push({
-                date: '10/01/2020 15:50:00',
+                date: this.currentDate,
                 text: this.newMessageToAdd,
                 status: 'sent'
             })
@@ -120,8 +124,10 @@ new Vue({
 
         responseFromComputer() {
 
+            this.currentDate = this.getDateRealTime()
+
             this.contacts[this.currentIndexConversation].messages.push({
-                date: '10/01/2020 15:50:00',
+                date: this.currentDate,
                 text: 'Ok!',
                 status: 'recived'
             })
@@ -156,6 +162,24 @@ new Vue({
             } else {
                 return lastMessage
             }
+        },
+
+        getLastTimeLogin(messages) {
+
+            if (messages.length === 0) {
+                return ""
+            }
+
+            return messages[messages.length - 1].date
+        },
+
+        getDateRealTime() {
+            const today = new Date();
+            const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+            const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+            const dateTime = date + ' ' + time;
+
+            return dateTime
         },
 
         onSetTabindex() {
