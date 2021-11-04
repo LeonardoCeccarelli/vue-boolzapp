@@ -8,7 +8,7 @@ new Vue({
         contacts: [
             {
                 name: 'Michele',
-                avatar: '../img/avatar_1.jpg',
+                avatar: '_1',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -29,7 +29,7 @@ new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: '../img/avatar_2.jpg',
+                avatar: '_2',
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -50,7 +50,7 @@ new Vue({
             },
             {
                 name: 'Samuele',
-                avatar: '../img/avatar_3.jpg',
+                avatar: '_3',
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -71,7 +71,7 @@ new Vue({
             },
             {
                 name: 'Luisa',
-                avatar: '../img/avatar_4.jpg',
+                avatar: '_4',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',

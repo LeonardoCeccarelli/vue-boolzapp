@@ -77,7 +77,7 @@
                         <div class="card_single_contact d-flex position-relative" v-for="(el, i) in contacts"
                             :class="i === currentIndexConversation ? 'active' : ''"
                             @click="onChangeCurrentConversation(i)">
-                            <img :src="el.avatar" alt="user image">
+                            <img :src="`../img/avatar${el.avatar}.jpg`" alt="user image">
                             <div class="card_single_contact_text">
                                 <h3 class="mb-1 mt-1">{{ el.name }}</h3>
                                 <p class="m-0 text-secondary">Ultimo messaggio</p>
@@ -93,7 +93,7 @@
 
                     <!-- section info message user -->
                     <div class="info_message_user d-flex align-items-center">
-                        <img :src="contacts[currentIndexConversation].avatar" alt="image user">
+                        <img :src="`../img/avatar${contacts[currentIndexConversation].avatar}.jpg`" alt="image user">
                         <div class="info_message_user_text">
                             <h4 class="mb-1">{{ contacts[currentIndexConversation].name}}</h4>
                             <p class="m-0 text-secondary">Ultimo accesso il 2021/11/03 alle 13:28:00</p>

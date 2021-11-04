@@ -75,7 +75,7 @@
                     <!-- section list contacts -->
                     <div class="list_contact d-flex flex-column">
                         <div class="card_single_contact d-flex position-relative" v-for="el in contacts">
-                            <img :src="el.avatar" alt="user image">
+                            <img :src="`../img/avatar${el.avatar}.jpg`" alt="user image">
                             <div class="card_single_contact_text">
                                 <h3 class="mb-1 mt-1">{{ el.name }}</h3>
                                 <p class="m-0 text-secondary">Ultimo messaggio</p>
