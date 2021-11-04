@@ -120,6 +120,9 @@ new Vue({
             this.newMessageToAdd = ""
 
             setTimeout(this.responseFromComputer, 1000)
+
+            setTimeout(this.autoScrollBottom, 0);
+
         },
 
         responseFromComputer() {
@@ -135,6 +138,9 @@ new Vue({
                 text: reply,
                 status: 'recived'
             })
+
+            setTimeout(this.autoScrollBottom, 0);
+
         },
 
         getFilteredContacts() {
@@ -197,6 +203,17 @@ new Vue({
             this.focusMessage = ""
 
             return deleteMessage
+        },
+
+        autoScrollBottom() {
+
+            let container = this.$el.querySelector("#chat_container")
+
+            container.scrollTop = container.scrollHeight
         }
+    },
+
+    mounted() {
+        setTimeout(this.autoScrollBottom, 100);
     }
 })
