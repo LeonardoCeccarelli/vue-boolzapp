@@ -119,9 +119,12 @@ new Vue({
 
             this.newMessageToAdd = ""
 
+            // this.autoScrollBottom()
+
             setTimeout(this.responseFromComputer, 1000)
 
             setTimeout(this.autoScrollBottom, 0);
+            // this.autoScrollBottom()
 
         },
 
@@ -138,6 +141,8 @@ new Vue({
                 text: reply,
                 status: 'recived'
             })
+
+            // this.autoScrollBottom()
 
             setTimeout(this.autoScrollBottom, 0);
 
@@ -214,6 +219,6 @@ new Vue({
     },
 
     mounted() {
-        setTimeout(this.autoScrollBottom, 100);
+        setTimeout(this.autoScrollBottom, 0);
     }
 })
