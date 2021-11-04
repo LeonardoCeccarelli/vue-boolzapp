@@ -124,11 +124,15 @@ new Vue({
 
         responseFromComputer() {
 
+            const answer = ["Ok!", "Ciao", "Tutto bene", "Come stai?", "Mi dispiace"]
+
+            const reply = answer[Math.floor(Math.random() * answer.length)]
+
             this.currentDate = this.getDateRealTime()
 
             this.contacts[this.currentIndexConversation].messages.push({
                 date: this.currentDate,
-                text: 'Ok!',
+                text: reply,
                 status: 'recived'
             })
         },
