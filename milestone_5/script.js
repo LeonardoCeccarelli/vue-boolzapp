@@ -149,19 +149,13 @@ new Vue({
         },
 
         getFilteredContacts() {
-            let newArray = this.contacts.filter((el) => {
-                let filterValue = true
+            if (!this.filteredContact) {
+                return this.contacts
+            }
 
-                if (el.name.toLowerCase().includes(this.filteredContact.toLowerCase().trim())) {
-                    filterValue = true
-                } else {
-                    filterValue = false
-                }
-
-                return filterValue
+            return this.contacts.filter((contact) => {
+                return contact.name.toLowerCase().includes(this.filteredContact.toLowerCase().trim());
             })
-
-            return newArray
         },
 
         getLastMessage(messages) {
