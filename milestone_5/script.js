@@ -93,7 +93,7 @@ new Vue({
 
         filteredContact: "",
 
-        currentDate: "",
+        // currentDate: "",
 
         focusMessage: 0,
 
@@ -112,40 +112,35 @@ new Vue({
                 return
             }
 
-            this.currentDate = this.getDateRealTime()
+            // this.currentDate = this.getDateRealTime()
 
             this.currentChatConversation.messages.push({
-                date: this.currentDate,
+                date: this.getDateRealTime(),
                 text: this.newMessageToAdd,
                 status: 'sent'
             })
 
             this.newMessageToAdd = ""
 
-            // this.autoScrollBottom()
-
             setTimeout(this.responseFromComputer, 1000)
 
             setTimeout(this.autoScrollBottom, 0);
-            // this.autoScrollBottom()
 
         },
 
         responseFromComputer() {
 
-            const answer = ["Ok!", "Ciao", "Tutto bene", "Come stai?", "Mi dispiace"]
+            const answer = ["Ok!", "Ciao", "Tutto bene", "Come stai?", "Mi dispiace", "Andiamo al cinema?", "Cosa fai nel pomeriggio?"]
 
             const reply = answer[Math.floor(Math.random() * answer.length)]
 
-            this.currentDate = this.getDateRealTime()
+            // this.currentDate = this.getDateRealTime()
 
             this.currentChatConversation.messages.push({
-                date: this.currentDate,
+                date: this.getDateRealTime(),
                 text: reply,
-                status: 'recived'
+                status: 'received'
             })
-
-            // this.autoScrollBottom()
 
             setTimeout(this.autoScrollBottom, 0);
 
@@ -185,10 +180,18 @@ new Vue({
             return messages[messages.length - 1].date
         },
 
+        getLastComputerMsg() {
+            const onlyCpuMsg = this.currentChatConversation.messages.filter((message) => {
+                return message.status === "received"
+            })
+
+            return onlyCpuMsg
+        },
+
         getDateRealTime() {
-            const today = new Date();
-            const date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-            const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+            const date = dayjs().format('MM/DD/YYYY');
+            const time = dayjs().format('HH:mm:ss');
+
             const dateTime = date + ' ' + time;
 
             return dateTime

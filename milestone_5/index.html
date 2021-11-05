@@ -24,6 +24,9 @@
     <!-- link CDN VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
+    <!-- link CDN DayJS -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     <title>Vue Boolzapp - Milestone 3</title>
 </head>
 
@@ -97,10 +100,9 @@
                         <img :src="`../img/avatar${currentChatConversation.avatar}.jpg`" alt="image user">
                         <div class="info_message_user_text">
                             <h4 class="mb-1">{{ currentChatConversation.name}}</h4>
-                            <p class="m-0 text-secondary"
-                                :class="currentChatConversation.messages.length === 0 ? 'd-none' : ''">
+                            <p class="m-0 text-secondary" :class="getLastComputerMsg().length === 0 ? 'd-none' : ''">
                                 {{'Ultimo accesso il ' +
-                                getLastTimeLogin(currentChatConversation.messages).split(" ").join(" alle ")
+                                getLastTimeLogin(getLastComputerMsg()).split(" ").join(" alle ")
                                 }}</p>
                         </div>
                         <div class="info_message_user_icon">
