@@ -152,7 +152,7 @@ new Vue({
             let newArray = this.contacts.filter((el) => {
                 let filterValue = true
 
-                if (el.name.toLowerCase().includes(this.filteredContact.toLowerCase())) {
+                if (el.name.toLowerCase().includes(this.filteredContact.toLowerCase().trim())) {
                     filterValue = true
                 } else {
                     filterValue = false
