@@ -87,7 +87,7 @@ new Vue({
             },
         ],
 
-        currentIndexConversation: 0,
+        currentChatConversation: {},
 
         newMessageToAdd: "",
 
@@ -95,8 +95,8 @@ new Vue({
 
     },
     methods: {
-        onChangeCurrentConversation(index) {
-            return this.currentIndexConversation = index
+        onChangeCurrentConversation(activeChat) {
+            return this.currentChatConversation = activeChat
         },
 
         onSentNewMessage() {
@@ -105,7 +105,7 @@ new Vue({
                 return
             }
 
-            this.contacts[this.currentIndexConversation].messages.push({
+            this.currentChatConversation.messages.push({
                 date: '10/01/2020 15:50:00',
                 text: this.newMessageToAdd,
                 status: 'sent'
@@ -118,7 +118,7 @@ new Vue({
 
         responseFromComputer() {
 
-            this.contacts[this.currentIndexConversation].messages.push({
+            this.currentChatConversation.messages.push({
                 date: '10/01/2020 15:50:00',
                 text: 'Ok!',
                 status: 'recived'
@@ -130,7 +130,7 @@ new Vue({
                 return this.contacts
             }
 
-            return this.contacts.filter((contact, i) => {
+            return this.contacts.filter((contact) => {
                 return contact.name.toLowerCase().includes(this.filteredContact.toLowerCase().trim());
             })
         },
@@ -149,5 +149,9 @@ new Vue({
                 return lastMessage
             }
         }
+    },
+
+    beforeMount() {
+        this.currentChatConversation = this.contacts[0]
     }
 })

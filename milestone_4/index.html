@@ -75,10 +75,9 @@
 
                     <!-- section list contacts -->
                     <div class="list_contact d-flex flex-column">
-                        <div class="card_single_contact d-flex position-relative"
-                            v-for="(el, i) in getFilteredContacts()"
-                            :class="i === currentIndexConversation ? 'active' : ''"
-                            @click="onChangeCurrentConversation(i)">
+                        <div class="card_single_contact d-flex position-relative" v-for="el in getFilteredContacts()"
+                            :class="el.name === currentChatConversation.name ? 'active' : ''"
+                            @click="onChangeCurrentConversation(el)">
                             <img :src="`../img/avatar${el.avatar}.jpg`" alt="user image">
                             <div class="card_single_contact_text">
                                 <h3 class="mb-1 mt-1">{{ el.name }}</h3>
@@ -95,9 +94,9 @@
 
                     <!-- section info message user -->
                     <div class="info_message_user d-flex align-items-center">
-                        <img :src="`../img/avatar${contacts[currentIndexConversation].avatar}.jpg`" alt="image user">
+                        <img :src="`../img/avatar${currentChatConversation.avatar}.jpg`" alt="image user">
                         <div class="info_message_user_text">
-                            <h4 class="mb-1">{{ contacts[currentIndexConversation].name}}</h4>
+                            <h4 class="mb-1">{{ currentChatConversation.name}}</h4>
                             <p class="m-0 text-secondary">Ultimo accesso il 2021/11/03 alle 13:28:00</p>
                         </div>
                         <div class="info_message_user_icon">
@@ -109,11 +108,10 @@
 
                     <!-- section conversation -->
                     <div class="conversation">
-                        <div class="conversation_message_container" v-for="(el, i) in contacts"
-                            v-if="i === currentIndexConversation">
-
+                        <div class="conversation_message_container">
                             <!-- single message -->
-                            <div class="single_message_container d-flex py-2" v-for="sms in el.messages"
+                            <div class="single_message_container d-flex py-2"
+                                v-for="sms in currentChatConversation.messages"
                                 :class="sms.status === 'sent' ?  'justify-content-end' : ''">
                                 <div class="single_message position-relative"
                                     :class="sms.status === 'sent' ?  'sent' : 'recived'">

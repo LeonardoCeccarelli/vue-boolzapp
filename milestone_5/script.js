@@ -87,7 +87,7 @@ new Vue({
             },
         ],
 
-        currentIndexConversation: 0,
+        currentChatConversation: {},
 
         newMessageToAdd: "",
 
@@ -99,8 +99,11 @@ new Vue({
 
     },
     methods: {
-        onChangeCurrentConversation(index) {
-            return this.currentIndexConversation = index
+        onChangeCurrentConversation(activeChat) {
+
+            setTimeout(this.autoScrollBottom, 0);
+
+            return this.currentChatConversation = activeChat
         },
 
         onSentNewMessage() {
@@ -111,7 +114,7 @@ new Vue({
 
             this.currentDate = this.getDateRealTime()
 
-            this.contacts[this.currentIndexConversation].messages.push({
+            this.currentChatConversation.messages.push({
                 date: this.currentDate,
                 text: this.newMessageToAdd,
                 status: 'sent'
@@ -136,7 +139,7 @@ new Vue({
 
             this.currentDate = this.getDateRealTime()
 
-            this.contacts[this.currentIndexConversation].messages.push({
+            this.currentChatConversation.messages.push({
                 date: this.currentDate,
                 text: reply,
                 status: 'recived'
@@ -195,9 +198,9 @@ new Vue({
             this.focusMessage = 0
         },
 
-        onClickRemoveMessage(index, currentConversation) {
+        onClickRemoveMessage(index) {
 
-            const deleteMessage = this.contacts[currentConversation].messages.splice(index, 1)
+            const deleteMessage = this.currentChatConversation.messages.splice(index, 1)
 
             this.focusMessage = ""
 
@@ -210,6 +213,10 @@ new Vue({
 
             container.scrollTop = container.scrollHeight
         }
+    },
+
+    beforeMount() {
+        this.currentChatConversation = this.contacts[0]
     },
 
     mounted() {
